@@ -1,0 +1,3 @@
+{
+    "mongoURL": "mongodb+srv://shweezzy:19961101@socialmedia.0megk.mongodb.net/<dbname>?retryWrites=true&w=majority"
+}
