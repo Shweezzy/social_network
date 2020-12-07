@@ -1,20 +1,28 @@
 const express = require('express');
 const app = express();
-const connectToDatabase = require('./config/connectToMongo')
+const connectToDatabase = require('./config/connectToMongo');
 const cors = require('cors');
 
+//підключаємось до ДБ
+connectToDatabase();
+
+//уникаємо помилки CORS при запросах
 app.use(cors());
+
 //дозволяє відправляти запроси в форматі json
 app.use(express.json({
     extended: false
 }));
 
-//тестовий запрос
-app.get('/', (req, res) => res.send('ITS WORKING'))
+//кожен роут(запрос) повинен бути на різних URL
+// app.use('/api/post', require('./routes/posts.js'))
+app.use('/api/users', require('./routes/users.js'))
+
 //Коли ми розмістимо на heroku, то він нам видасть автоматичний порт,
-//якщо його не надасть - 5000
-let PORT = process.env.PORT || 5000;
-//слушатель, який приймає наш порт, а другим аргументом - функцію, яка сповіщає ПОРТ і старт
+//якщо його не надасть - 0000
+let PORT = process.env.PORT || 1000;
+
+//метод, який приймає наш порт, а другим аргументом - функцію, яка сповіщає ПОРТ і старт
 app.listen(PORT, () => {
     console.log(`Server is on: ${PORT}`)
 })

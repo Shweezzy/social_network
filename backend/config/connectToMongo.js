@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 //дані, які нам надає default.json
 const config = require('config');
-//приэднання до нашоъ БД, методи мангуса використовую асинхронні функції
+//приєднання до нашоЇ БД, методи мангуса використовую асинхронні функції
 //щоб відлавлювати можливі помилки try catch
 const connectToDB = async () => {
     try {
@@ -12,9 +12,9 @@ const connectToDB = async () => {
                 useCreateIndex: true //mongo створить унікальний індекс(пост, лайк, коммент)
             }
         )
-    } catch (error) {
-        console.log(error);
-        //якщо наявна помилка відключає зєднання
+    } catch (err) {
+        console.log(err);
+        //якщо наявна помилка відключає зєднання forever
         process.exit(1);
     }
 }
