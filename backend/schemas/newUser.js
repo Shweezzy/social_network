@@ -12,7 +12,8 @@ let userSchema = mongoose.Schema({
     },
     userName: {
         type: String,
-        required: true
+        required: true,
+        unique: true
     },
     email: {
         type: String,
@@ -20,7 +21,8 @@ let userSchema = mongoose.Schema({
     },
     password: {
         type: String,
-        required: true
+        required: true,
+        unique: true
     },
     avatar: {
         type: String

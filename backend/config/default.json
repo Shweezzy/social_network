@@ -1,3 +1,4 @@
 {
-    "mongoURL": "mongodb+srv://shweezzy:19961101@socialmedia.0megk.mongodb.net/<dbname>?retryWrites=true&w=majority"
+    "mongoURL": "mongodb+srv://shweezzy:19961101@socialnetwork.x8fi4.mongodb.net/<dbname>?retryWrites=true&w=majority",
+    "jsonwebtoken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c"
 }
