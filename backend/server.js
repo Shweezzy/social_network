@@ -15,7 +15,7 @@ app.use(express.json({
 }));
 
 //кожен роут(запрос) повинен бути на різних URL
-// app.use('/api/post', require('./routes/posts.js'))
+app.use('/api/posts', require('./routes/posts.js'))
 app.use('/api/users', require('./routes/users.js'))
 
 //Коли ми розмістимо на heroku, то він нам видасть автоматичний порт,

@@ -192,7 +192,7 @@ router.post('/register', [
 
 //створення роута для login перевірка на - наявні email password в БД
 router.post('/login', [
-        check('email', 'E-mail is empty').isEmail(),
+        check('email', 'E-mail is empty or type "...@gmail.com"').isEmail(),
         check('password', 'The password must be between 6 and 12 characters long').isLength({
             min: 6,
             max: 12
@@ -334,6 +334,7 @@ router.put('/check_actual_password', auth,
             const {
                 passwordToCheck
             } = req.body;
+
             let err = validationResult(req);
 
             if (!err.isEmpty()) return res.status(400).json({
@@ -343,8 +344,8 @@ router.put('/check_actual_password', auth,
             let user = await User.findById(req.user.id);
             //перевірка пароля
             let passwordMatch = await bcryptjs.compare(passwordToCheck, user.password);
-            //якщо пароль не ідентичний
-            if (!passwordMatch) return res.status(401).json('Password do not match');
+            // //якщо пароль не ідентичний
+            // if (!passwordMatch) return res.status(401).json('Password do not match');
 
             res.json('passwords match');
         } catch (err) {
