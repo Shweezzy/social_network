@@ -147,6 +147,7 @@ router.post('/', auth, [
     }
 });
 
+
 router.put('/search_for_post',
     [
         check('searchInput', 'Search is empty').not().isEmpty()
@@ -260,6 +261,5 @@ router.put('add_comment/:post_id', auth, [
         return res.status(500).json('Server error')
     }
 });
-
 
 module.exports = router;
