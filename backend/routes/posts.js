@@ -179,7 +179,7 @@ router.put('/search_for_post',
             return res.status(500).json('Server error')
 
         }
-    })
+    });
 
 router.put('/likes/:post_id', auth, async (req, res) => {
     try {
@@ -259,5 +259,7 @@ router.put('add_comment/:post_id', auth, [
         console.error(err);
         return res.status(500).json('Server error')
     }
-})
+});
+
+
 module.exports = router;
