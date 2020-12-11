@@ -147,4 +147,117 @@ router.post('/', auth, [
     }
 });
 
+router.put('/search_for_post',
+    [
+        check('searchInput', 'Search is empty').not().isEmpty()
+    ],
+    async (req, res) => {
+        //отримуємо данні з інпута
+        const {
+            searchInput
+        } = req.body;
+        let err = validationResult(req);
+
+        if (!err.isEmpty()) return res.status(400).json({
+            err: err.array()
+        });
+        try {
+            //вибираємо з БД всі пости
+            let posts = await Post.find();
+            //якщо пустий інпут - поверне всі пости
+            if (searchInput == '') {
+                res.json(posts);
+            } else {
+                //Шукаємо пости в БД по тексту з інпута
+                let findPostFromSearchInput = post.filter(post => post.textOfThePost.toString().toLowerCase().split(' ').join('') ===
+                    searchInput.toLowerCase().split(' ').join(''));
+                res.json(findPostFromSearchInput);
+            }
+        } catch (err) {
+            console.error(err);
+
+            return res.status(500).json('Server error')
+
+        }
+    })
+
+router.put('/likes/:post_id', auth, async (req, res) => {
+    try {
+        let err = validationResult(req);
+
+        if (!err.isEmpty()) return res.status(400).json({
+            err: err.array()
+        });
+        //беремо id вибраного поста
+        let post = await Post.findById(req.params.post_id);
+
+        if (!post) return res.status(404).json('Post is not found');
+
+        //провірка на наявний лайк у бд зберігається id і user пошук по користувачу
+        if (post.likes.find(like => like.user.toString() === req.user.id))
+            return res.status(401).json('the post has already been liked by you');
+
+        //створюємо новий пост
+        let newLike = {
+            user: req.user.id
+        }
+
+        //добавляємо новий лайк
+        post.likes.unshift(newLike);
+
+        //зберігамо
+        await post.save();
+
+        res.json(post)
+    } catch (error) {
+        console.error(err);
+
+        return res.status(500).json('Server error')
+
+    }
+});
+
+//Додавання нового комента
+router.put('add_comment/:post_id', auth, [
+    check('textOfTheComment', 'Value is empty').not().isEmpty()
+], async (req, res) => {
+    //Отримуємо комент
+    const {
+        textOfTheComment
+    } = req.body;
+
+    let err = validationResult(req);
+
+    if (!err.isEmpty()) return res.status(400).json({
+        err: err.array()
+    });
+    try {
+        //Беремо пост з БД
+        let post = await Post.findById(req.params.post_id);
+        //шукаємо користувача з БД
+        let user = await User.findById(req.user._id).select('-password');
+
+        if (!user) return res.status(404).json('User is not found!');
+
+        if (!post) return res.status(404).json('Post is not found');
+
+        //створення нового комента
+        let newComment = {
+            textOfTheComment,
+            name: user.name,
+            avatar: user.avatar,
+        }
+
+        //Додавання комента
+        post.comments.unshift(newComment);
+
+        //збереження
+        await post.save();
+
+        res.json('New comment is added');
+    } catch (err) {
+        console.error(err);
+        return res.status(500).json('Server error')
+    }
+})
 module.exports = router;

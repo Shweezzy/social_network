@@ -270,9 +270,10 @@ router.put('/search_by_userName', [
 
             let users = await User.find().select('-password');
 
-            let findUser = users.filter(user => user.userName.toString().toLowerCase().split(' ').join('') === userFromSearch.toLowerCase().split(' ').join(''))
+            let findUser = users.filter(user => user.userName.toString().toLowerCase().split(' ').join('') === 
+            userFromSearch.toLowerCase().split(' ').join(''));
 
-            res.json(findUser)
+            res.json(findUser);
         } catch (err) {
             if (err) {
                 console.error(err.message);
