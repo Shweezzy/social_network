@@ -1,18 +1,21 @@
 # social_network
+
 Social Media Website Using MERN Stack
 
 Initial version. Backend - after cloning
 
-#  step 1  # 
+# step 1
 
->cd backend
+> cd backend
 
-#  step 2  #
+# step 2
 
->npm install
+> npm install
 
-#  step 3  #
+# step 3
 
->npm run forever (this is the usual alternative nodemon)
+> npm run forever (this is the usual alternative nodemon)
+
 ---
+
 This project is designed for teaching purposes only andis still in development...
