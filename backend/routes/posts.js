@@ -144,7 +144,7 @@ router.post(
     }
   }
 );
-
+//пошук постів
 router.put(
   "/search_for_post",
   [check("searchInput", "Search is empty").not().isEmpty()],
@@ -179,7 +179,7 @@ router.put(
     }
   }
 );
-
+//Лайк поста
 router.put("/likes/:post_id", auth, async (req, res) => {
   try {
     let err = validationResult(req);
@@ -261,7 +261,7 @@ router.put(
     }
   }
 );
-
+//лайк комента
 router.put("/like_comment/:post_id/:comment_id", auth, async (req, res) => {
   try {
     let err = validationResult(req);
@@ -295,7 +295,7 @@ router.put("/like_comment/:post_id/:comment_id", auth, async (req, res) => {
     return res.status(500).json("Server error");
   }
 });
-
+//Видалення поста
 router.delete("/delete_post/:post_id", auth, async (req, res) => {
   try {
     let err = validationResult(req);
@@ -304,11 +304,11 @@ router.delete("/delete_post/:post_id", auth, async (req, res) => {
       return res.status(400).json({
         err: err.array(),
       });
-
+    //шукаємо пост по id з входящим id
     let post = await Post.findById(req.params.post_id);
 
     if (!post) return res.status(404).json("Post is not found");
-
+    //якщо id юзера не дорівнює id юзеру, який створив пост
     if (post.user.toString() !== req.user.id.toString())
       return res.status(401).json("You do not have permission to delete");
 
@@ -320,7 +320,7 @@ router.delete("/delete_post/:post_id", auth, async (req, res) => {
     return res.status(500).json("Server error");
   }
 });
-
+//Видалення лайків з поста
 router.delete(
   "/remove_likes_from_post/:post_id/:like_id",
   auth,
