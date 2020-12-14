@@ -1,7 +1,7 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
-import Registration from "./pages/Register";
+import Registration from "./pages/Registration";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 
@@ -10,8 +10,18 @@ import store from "./store.js";
 
 //Зєднує стору з нашими маршрутами
 import { Provider } from "react-redux";
+import setAuthToken from "./middleware/setAuthToken";
+import { userLoaded } from "./actions/authActions";
+
+if (localStorage.getItem("token")) {
+  setAuthToken(localStorage.getItem("token"));
+}
 
 const App = () => {
+  //Коли ви викликаєте useEffect, React отримує вказівку запустити вашу функцію з “ефектом” після того, як він відправив зміни
+  useEffect(() => {
+    store.dispatch(userLoaded());
+  }, []);
   return (
     <Router>
       <Provider store={store}>

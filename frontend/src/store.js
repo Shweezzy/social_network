@@ -12,6 +12,8 @@ import thunk from "redux-thunk";
 //повертає наступний стан (нову версію попереднього). Функція називається редюсером (reducer) тому, що її можна передати в Array. prototype
 import rootReducer from "./reducers";
 
+//У нас є список дій (Actions) і наш редюсер (Reducers), який може обробляти наші дії
+
 const middleware = [thunk];
 
 //початковий стан
