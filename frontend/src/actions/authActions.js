@@ -4,7 +4,7 @@ import {
   AUTH_ERROR,
   USER_IS_LOADED,
   LOG_OUT,
-} from "../constants/auth.constans";
+} from "../constants/constans";
 import axios from "axios";
 import setAuthToken from "../middleware/setAuthToken";
 //actions - дії

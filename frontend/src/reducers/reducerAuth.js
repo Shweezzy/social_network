@@ -5,7 +5,7 @@ import {
   AUTH_ERROR,
   USER_IS_LOADED,
   LOG_OUT,
-} from "../constants/auth.constans";
+} from "../constants/constans";
 
 //початковий(за замовчуванням)
 const initialState = {
