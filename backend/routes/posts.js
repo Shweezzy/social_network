@@ -6,34 +6,39 @@ const {
   searchForPostValidator,
   addCommentValidator,
 } = require("../middleware/validator");
-const getPosts = require("../functionsForQueries/posts/getPosts");
+
 const sortPostsByLikes = require("../functionsForQueries/posts/sortPostsByLikes");
 const sortPostsByDate = require("../functionsForQueries/posts/sortPostsByDate");
 const sortPostsByComments = require("../functionsForQueries/posts/sortPostsByComments");
+
+const getPosts = require("../functionsForQueries/posts/getPosts");
 const getSinglePost = require("../functionsForQueries/posts/getSinglePost");
 const getPostsUserByMiddleware = require("../functionsForQueries/posts/getPostsUserByMiddleware");
-const getUserPostsById = require("../functionsForQueries/posts/getUserPostsById");
-const addPost = require("../functionsForQueries/posts/addPost");
+const getUserPostById = require("../functionsForQueries/posts/getUserPostById");
+
 const postSearch = require("../functionsForQueries/posts/postSearch");
+const addPost = require("../functionsForQueries/posts/addPost");
 const addLike = require("../functionsForQueries/likes/addLike");
+
 const addComment = require("../functionsForQueries/comments/addComment");
 const likeComment = require("../functionsForQueries/likes/likeComment");
+
 const deletePost = require("../functionsForQueries/posts/deletePost");
 const deleteLikePost = require("../functionsForQueries/likes/deleteLikePost");
 const deleteComment = require("../functionsForQueries/comments/deleteComment");
-const deleteLikeComment = require("../functionsForQueries/likes/deleteLikeComment");
+const deleteLikeFromComment = require("../functionsForQueries/likes/deleteLikeFromComment");
 
-router.get("/posts", getPosts);
+router.get("/getposts", getPosts);
 
-router.get("/posts/most_liked", sortPostsByLikes);
+router.get("/posts/sortPostsByLikes", sortPostsByLikes);
 
-router.get("/posts/the_most_recent", sortPostsByDate);
+router.get("/posts/sortPostsByDate", sortPostsByDate);
 
-router.get("/posts/the_most_commented", sortPostsByComments);
+router.get("/posts/sortPostsByComments", sortPostsByComments);
 
 router.get("/single_post/:post_id", getSinglePost);
 
-router.get("/user_posts/:user_id", getUserPostsById);
+router.get("/user_post/:user_id", getUserPostById);
 
 router.get("/user_posts", auth, getPostsUserByMiddleware);
 
@@ -49,14 +54,14 @@ router.put("/like_comment/:post_id/:comment_id", auth, likeComment);
 
 router.delete("/delete_post/:post_id", auth, deletePost);
 
-router.delete("/remove_like_from_post/:post_id/:like_id", auth, deleteLikePost);
+router.delete("/delete_like_from_post/:post_id/:like_id", auth, deleteLikePost);
 
-router.delete("/remove_comment/:post_id/:comment_id", auth, deleteComment);
+router.delete("/delete_comment/:post_id/:comment_id", auth, deleteComment);
 
 router.delete(
   "/remove_like_from_comment/:post_id/:comment_id/:like_id",
   auth,
-  deleteLikeComment
+  deleteLikeFromComment
 );
 
 module.exports = router;

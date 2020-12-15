@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "forever": "forever -w server.js"
+    "forever": "forever -w server.js",
+    "client": "cd .. && cd frontend && npm start"
   },
   "author": "",
   "license": "ISC",
