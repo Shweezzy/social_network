@@ -10,6 +10,7 @@ const connectToDB = async () => {
       useUnifiedTopology: true,
       useCreateIndex: true, //mongo створить унікальний індекс(пост, лайк, коммент)
     });
+    console.log("MongoDb is connected...");
   } catch (err) {
     console.log(err);
     //якщо наявна помилка відключає зєднання forever

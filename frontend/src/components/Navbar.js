@@ -1,7 +1,18 @@
 import React from "react";
+import { connect } from "react-redux";
+import { logOut } from "../actions/authActions/logOut";
+import NavbarLinks from "./navbarData/NavbarLinks";
 
-function Navbar() {
-  return <div>Navbar</div>;
-}
+const Navbar = ({ logOut, auth: { isLoggedIn } }) => {
+  return (
+    <nav>
+      <NavbarLinks logOut={logOut} isLoggedIn={isLoggedIn} />
+    </nav>
+  );
+};
 
-export default Navbar;
+const mapStateToProps = (state) => ({
+  auth: state.auth,
+});
+
+export default connect(mapStateToProps, { logOut })(Navbar);

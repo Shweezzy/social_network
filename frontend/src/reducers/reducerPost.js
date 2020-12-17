@@ -1,28 +1,65 @@
 import {
   MAKE_POST,
-  GET_USER_POSTS,
-  GET_POST_BY_USER_ID,
-  GET_POST,
+  POST_ERROR,
   GET_POSTS,
+  GET_POST,
   CLEAR_POSTS,
   CLEAR_POST,
-  SEARCH_FOR_POST,
-  SORT_POSTS_BY_LIKES,
-  SORT_POSTS_BY_COMMENTS,
-  SORT_POSTS_BY_DATE,
-  ADD_LIKE,
-  ADD_COMMENT,
-  ADD_LIKE_COMMENT,
+  SEARCH_TOPICS,
+  MOST_LIKED_POSTS,
+  MOST_COMMENTED,
+  THE_MOST_RECENT_POSTS,
   REMOVE_LIKE_FROM_COMMENT,
-  REMOVE_COMMENT,
-  REMOVE_POST,
-  REMOVE_LIKE,
-  POST_ERROR,
 } from "../constants/postConstants";
+
+const initialState = {
+  posts: [],
+  post: null,
+  isLoading: false,
+  errors: {},
+};
 
 const posts = (state = initialState, action) => {
   const { type, payload } = action;
   switch (type) {
+    case MAKE_POST:
+    case GET_POST:
+    case REMOVE_LIKE_FROM_COMMENT:
+      return {
+        ...state,
+        post: payload,
+        isLoading: false,
+        errors: {},
+      };
+    case GET_POSTS:
+    case THE_MOST_RECENT_POSTS:
+    case SEARCH_TOPICS:
+    case MOST_COMMENTED:
+    case MOST_LIKED_POSTS:
+      return {
+        ...state,
+        posts: payload,
+        errors: {},
+        isLoading: false,
+      };
+    case CLEAR_POSTS:
+      return {
+        ...state,
+        posts: [],
+        errors: {},
+      };
+    case CLEAR_POST:
+      return {
+        ...state,
+        post: null,
+        errors: {},
+      };
+    case POST_ERROR:
+      return {
+        ...state,
+        errors: payload,
+        isLoading: true,
+      };
     default:
       return state;
   }

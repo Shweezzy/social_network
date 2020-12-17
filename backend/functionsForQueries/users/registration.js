@@ -8,19 +8,19 @@ const config = require("config");
 module.exports = async (req, res) => {
   try {
     let { name, lastName, userName, email, password } = req.body;
-
     let user = await User.findOne({ email }).select("-password");
+    let fetchedUserNameFromDatabase = await User.findOne({ userName }).select(
+      "-password"
+    );
+    let errors = validationResult(req);
 
-    let inaccessibleUser = await User.findOne({ userName }).select("-password");
-
-    let err = validationResult(req);
-
-    if (!err.isEmpty()) return res.status(400).json({ err: err.array() });
+    if (!errors.isEmpty())
+      return res.status(400).json({ errors: errors.array() });
 
     if (user) return res.status(401).send("User has already been created");
 
-    if (inaccessibleUser === userName)
-      return res.status(401).json("This user name is already in use");
+    if (fetchedUserNameFromDatabase === userName)
+      return res.status(401).json("User name like is already been taken");
 
     const avatar = gravatar.url(email, {
       r: "pg",
@@ -39,9 +39,9 @@ module.exports = async (req, res) => {
 
     const salt = await bcryptjs.genSalt(10);
 
-    let hashPassword = await bcryptjs.hash(password, salt);
+    let hashedPassword = await bcryptjs.hash(password, salt);
 
-    newUser.password = hashPassword;
+    newUser.password = hashedPassword;
 
     await newUser.save();
 
@@ -53,15 +53,15 @@ module.exports = async (req, res) => {
 
     jwt.sign(
       payload,
-      config.get("jsonwebtoken"),
+      config.get("jsonWebTokenSecret"),
       { expiresIn: 3600 },
       (err, token) => {
         if (err) throw err;
         res.json({ token });
       }
     );
-  } catch (err) {
-    console.error(err.message);
-    return res.status(500).send("Server error");
+  } catch (error) {
+    console.error(error.message);
+    return res.status(500).send("Server error.");
   }
 };

@@ -1,0 +1,46 @@
+h2 {
+  font-family: "Lobster", Georgia, Times, serif;
+  font-size: 30px;
+  line-height: 50px;
+}
+.contain {
+  display: flex;
+}
+.firstBlock {
+  width: 50%;
+  margin: 10% 10% 10% 10%;
+  transition: all 0.3s ease;
+  font-family: "Monotype Corsiva" Cursive;
+}
+
+.secondBlock {
+  width: 50%;
+  margin: auto;
+  transition: all 0.3s ease;
+}
+
+.logo {
+  width: 60%;
+  margin: auto;
+}
+
+.bold {
+  opacity: 0.8;
+  font-family: helvetica;
+  text-transform: uppercase;
+  text-align: center;
+  color: #912f2f;
+  text-shadow: #dabfbf 3px 5px 0, rgb(163, 88, 88) 4px 6px 3px,
+    rgb(196, 102, 102) 8px 11px 10px;
+}
+.firstBlock:hover {
+  -webkit-transform: scale(1.2);
+  -ms-transform: scale(1.2);
+  transform: scale(1.2);
+}
+
+.secondBlock:hover {
+  -webkit-transform: scale(1.2);
+  -ms-transform: scale(1.2);
+  transform: scale(1.2);
+}

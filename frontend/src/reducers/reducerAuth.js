@@ -1,40 +1,71 @@
-//консанти
 import {
   AUTH_FORM_SUCCESS,
   AUTH_FORM_FAIL,
   AUTH_ERROR,
   USER_IS_LOADED,
   LOG_OUT,
-} from "../constants/constans";
+  CHANGE_PASSWORD_FAIL,
+  CHECK_PASSWORDS,
+  CHANGE_PROFILE,
+  CHANGE_USER_DATA_FAILED,
+  GET_USERS,
+  SEARCH_BY_USERNAME,
+} from "../constants/auth.constans";
 
-//початковий(за замовчуванням)
 const initialState = {
   token: localStorage.getItem("token"),
-  users: {},
+  users: [],
   user: {},
-  isLogged: false,
+  errors: {},
+  isLoggedIn: false,
   isAllowedToChangePassword: false,
   isPasswordChanged: false,
   isLoading: false,
 };
 
-//Редюсери приймають аргументи: стан, встановлене як початковий стан за замовчуванням (Initial state), і дію (Action).
-//Ця дія допомагає редюсеру визначити, що необхідно зробити зі станом.
 const auth = (state = initialState, action) => {
   const { type, payload } = action;
   switch (type) {
-    //наявний токен пройшла auth
     case AUTH_FORM_SUCCESS:
       localStorage.setItem("token", payload.token);
       return {
         ...state,
         ...payload,
-        isLogged: true,
+        isLoggedIn: true,
         isAllowedToChangePassword: false,
         isPasswordChanged: false,
         isLoading: false,
+        errors: {},
       };
-    //token не пройшов auth - видалення token
+    case CHANGE_PROFILE:
+      return {
+        ...state,
+        ...payload,
+        isLoggedIn: true,
+        isAllowedToChangePassword: false,
+        isPasswordChanged: false,
+        isLoading: false,
+        errors: null,
+      };
+    case CHECK_PASSWORDS:
+      return {
+        ...state,
+        ...payload,
+        isAllowedToChangePassword: true,
+        errors: {},
+      };
+
+    case GET_USERS:
+    case SEARCH_BY_USERNAME:
+      return {
+        ...state,
+        users: [...payload],
+        isLoggedIn: true,
+        isAllowedToChangePassword: false,
+        isPasswordChanged: false,
+        isLoading: false,
+        errors: null,
+      };
     case AUTH_FORM_FAIL:
     case AUTH_ERROR:
     case LOG_OUT:
@@ -42,25 +73,31 @@ const auth = (state = initialState, action) => {
       return {
         ...state,
         ...payload,
+        errors: payload,
         user: {},
-        isLogged: false,
+        isLoggedIn: false,
         isAllowedToChangePassword: false,
         isPasswordChanged: false,
         isLoading: false,
       };
-    //загружає користувача
+    case CHANGE_PASSWORD_FAIL:
+    case CHANGE_USER_DATA_FAILED:
+      return {
+        ...state,
+        errors: payload,
+      };
     case USER_IS_LOADED:
       localStorage.getItem("token");
       return {
         ...state,
         ...payload,
         user: payload,
-        isLogged: true,
+        errors: {},
+        isLoggedIn: true,
         isAllowedToChangePassword: false,
         isPasswordChanged: false,
         isLoading: false,
       };
-
     default:
       return state;
   }

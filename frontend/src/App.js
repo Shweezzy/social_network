@@ -3,15 +3,15 @@ import Home from "./pages/Home";
 import Login from "./pages/Login";
 import Registration from "./pages/Registration";
 import Navbar from "./components/Navbar";
-import Footer from "./components/Footer";
 
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import store from "./store.js";
+import IsLoggedInRoute from "./customRoutes/isLoggedInRoute";
 
 //Зєднує стору з нашими маршрутами
 import { Provider } from "react-redux";
 import setAuthToken from "./middleware/setAuthToken";
-import { userLoaded } from "./actions/authActions";
+import { userLoaded } from "./actions/authActions/userLoaded";
 
 if (localStorage.getItem("token")) {
   setAuthToken(localStorage.getItem("token"));
@@ -32,10 +32,13 @@ const App = () => {
         <Switch>
           {/* exact для строгої рівності */}
           <Route path="/" exact component={Home} />
-          <Route path="/registration" exact component={Registration} />
-          <Route path="/login" exact component={Login} />
+          <IsLoggedInRoute
+            path="/registration"
+            exact
+            component={Registration}
+          />
+          <IsLoggedInRoute path="/login" exact component={Login} />
         </Switch>
-        <Footer />
       </Provider>
     </Router>
   );
