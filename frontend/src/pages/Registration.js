@@ -98,11 +98,7 @@ const Registration = ({ registerUser, error }) => {
             />
           )}
 
-          <Button
-            variant="primary"
-            type="submit"
-            onClick={() => registerUser(userData)}
-          >
+          <Button variant="primary" onClick={() => registerUser(userData)}>
             Sign up
           </Button>
         </Form>

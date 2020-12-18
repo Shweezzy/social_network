@@ -5,6 +5,7 @@
   margin: auto;
   background: url("../logo.png") 48% no-repeat;
   background-size: contain;
+  opacity: 0.9;
 }
 .form {
   width: 60%;

@@ -13,11 +13,10 @@ import { Provider } from "react-redux";
 import setAuthToken from "./middleware/setAuthToken";
 import { userLoaded } from "./actions/authActions/userLoaded";
 
-if (localStorage.getItem("token")) {
-  setAuthToken(localStorage.getItem("token"));
-}
-
 const App = () => {
+  if (localStorage.getItem("token")) {
+    setAuthToken(localStorage.getItem("token"));
+  }
   //Коли ви викликаєте useEffect, React отримує вказівку запустити вашу функцію з “ефектом” після того, як він відправив зміни
   useEffect(() => {
     store.dispatch(userLoaded());

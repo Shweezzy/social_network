@@ -2,40 +2,82 @@ import React from "react";
 import { Image } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import logo from "../../logo.png";
+import s from "./NavbarLinks.module.css";
 
 const NavbarLinks = ({ isLoggedIn, logOut }) => {
   return (
-    <div style={{ margin: "0px" }}>
-      <Link to="/">
-        <Image style={{ width: "10%" }} src={logo} roundedCircle />
-      </Link>
-      <Link to="/users">Users</Link>
-      <Link to="/topics">Topics</Link>
-      <Link to="/login" style={{ display: isLoggedIn ? "none" : "flex" }}>
-        Log In
-      </Link>
-      <Link
-        to="/registration"
-        style={{ display: isLoggedIn ? "none" : "flex" }}
-      >
-        Sign Up
-      </Link>
-      <Link to="/account" style={{ display: isLoggedIn ? "flex" : "none" }}>
-        Account
-      </Link>
-      <Link to="/dashboard" style={{ display: isLoggedIn ? "flex" : "none" }}>
-        Dashboard <i className="fas fa-user"></i>
-      </Link>
-      <Link to="/add-post" style={{ display: isLoggedIn ? "flex" : "none" }}>
-        Add question
-      </Link>
-      <Link
-        to="/login"
-        onClick={() => logOut()}
-        style={{ display: isLoggedIn ? "flex" : "none" }}
-      >
-        Log Out
-      </Link>
+    <div className={s.contain}>
+      <div className={s.body}>
+        <Link to="/">
+          <Image style={{ width: "100px" }} src={logo} roundedCircle />
+        </Link>
+      </div>
+      <div className={s.links}>
+        <Link className={s.buttonSecondary} to="/users">
+          <span className={s.Text}>Users</span>
+          <span className={s.iconArrow}></span>
+        </Link>
+
+        <Link className={s.buttonSecondary} to="/topics">
+          <span className={s.Text}>Topics</span>
+          <span className={s.iconArrow}></span>
+        </Link>
+
+        <Link
+          className={s.buttonSecondary}
+          style={{ display: isLoggedIn ? "none" : "flex" }}
+          to="/login"
+        >
+          <span className={s.Text}>Log In</span>
+          <span className={s.iconArrow}></span>
+        </Link>
+
+        <Link
+          className={s.buttonSecondary}
+          style={{ display: isLoggedIn ? "none" : "flex" }}
+          to="/registration"
+        >
+          <span className={s.Text}>Sign Up</span>
+          <span className={s.iconArrow}></span>
+        </Link>
+
+        <Link
+          className={s.buttonSecondary}
+          style={{ display: isLoggedIn ? "flex" : "none" }}
+          to="/account"
+        >
+          <span className={s.Text}>Account</span>
+          <span className={s.iconArrow}></span>
+        </Link>
+
+        <Link
+          className={s.buttonSecondary}
+          style={{ display: isLoggedIn ? "flex" : "none" }}
+          to="/dashboard"
+        >
+          <span className={s.Text}>Dashboard</span>
+          <span className={s.iconArrow}></span>
+        </Link>
+
+        <Link
+          className={s.buttonSecondary}
+          style={{ display: isLoggedIn ? "flex" : "none" }}
+          to="/add-post"
+        >
+          <span className={s.Text}>Question</span>
+          <span className={s.iconArrow}></span>
+        </Link>
+
+        <Link
+          className={s.buttonSecondary}
+          style={{ display: isLoggedIn ? "flex" : "none" }}
+          to="/login"
+          onClick={() => logOut()}
+        >
+          <span className={s.Text}>Log Out</span>
+          <span className={s.iconArrow}></span>
+        </Link>
+      </div>
     </div>
   );
 };

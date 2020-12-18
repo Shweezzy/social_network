@@ -14,7 +14,7 @@ h2 {
 }
 
 .secondBlock {
-  width: 50%;
+  width: 40%;
   margin: auto;
   transition: all 0.3s ease;
 }
@@ -34,13 +34,7 @@ h2 {
     rgb(196, 102, 102) 8px 11px 10px;
 }
 .firstBlock:hover {
-  -webkit-transform: scale(1.2);
-  -ms-transform: scale(1.2);
-  transform: scale(1.2);
-}
-
-.secondBlock:hover {
-  -webkit-transform: scale(1.2);
-  -ms-transform: scale(1.2);
-  transform: scale(1.2);
+  -webkit-transform: scale(1.1);
+  -ms-transform: scale(1.1);
+  transform: scale(1.1);
 }

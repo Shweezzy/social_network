@@ -18,8 +18,8 @@ const getUserPostById = require("../functionsForQueries/posts/getUserPostById");
 
 const postSearch = require("../functionsForQueries/posts/postSearch");
 const addPost = require("../functionsForQueries/posts/addPost");
-const addLike = require("../functionsForQueries/likes/addLike");
 
+const addLike = require("../functionsForQueries/likes/addLike");
 const addComment = require("../functionsForQueries/comments/addComment");
 const likeComment = require("../functionsForQueries/likes/likeComment");
 

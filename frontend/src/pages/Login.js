@@ -7,7 +7,7 @@ import s from "./Login.module.css";
 
 import { Form, Button } from "react-bootstrap";
 
-const Login = ({ loginUser }) => {
+const Login = ({ loginUser, error }) => {
   const [userData, setUserData] = useState({
     email: "",
     password: "",
@@ -51,20 +51,15 @@ const Login = ({ loginUser }) => {
               If you have not created your account yet,
               <br /> please register
             </Form.Text>
-            {/* {error && (error !== null || error !== "" || error !== {}) && (
+            {error && (error !== null || error !== "" || error !== {}) && (
               <ErrorMessage errorMessage="Wrong e-mail or password..." />
-            )} */}
+            )}
             <Link to="/registration">
               <Button variant="primary" type="submit" className={s.button}>
                 Sign up
               </Button>
             </Link>
-            <Button
-              variant="primary"
-              type="submit"
-              onClick={(e) => loginUser(userData)}
-              className={s.button}
-            >
+            <Button onClick={(e) => loginUser(userData)} className={s.button}>
               Log in
             </Button>
           </Form>

@@ -20,10 +20,10 @@ const middleware = [thunk];
 const initialState = {};
 
 //1 аргумент - редюсер, 2 - початковий стан, 3
-const Store = createStore(
+const store = createStore(
   rootReducer,
   initialState,
   composeWithDevTools(applyMiddleware(...middleware))
 );
 
-export default Store;
+export default store;

@@ -1,9 +1,98 @@
-.image {
-  width: 150px;
+.contain {
+  display: flex;
+  text-align: center;
+  justify-content: space-between;
+  align-items: center;
+  padding-right: 28px;
 }
-container {
-  margin: 0px;
+
+.links {
+  display: contents;
 }
-Link {
-  margin-top: 10px;
+.links a {
+  transition: width 1s;
+}
+
+*,
+:after,
+:before {
+  box-sizing: border-box;
+}
+
+.buttonSecondary {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #fff;
+  color: #05cdcd;
+  width: 145px;
+  height: 44px;
+  border-radius: 22px;
+  padding: 0 0 0 21px;
+  line-height: 44px;
+  text-align: center;
+  cursor: pointer;
+}
+.buttonSecondary:before {
+  content: "";
+  position: absolute;
+  left: 5px;
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: #cd0505;
+  transform: scale(0);
+  opacity: 0;
+  transition: all 0.33s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+.buttonSecondary .text {
+  white-space: nowrap;
+  transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+.buttonSecondary .iconArrow {
+  position: relative;
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  margin-right: 20px;
+  border-radius: 50%;
+  background-color: #9c1616;
+  transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+.buttonSecondary .iconArrow:after {
+  content: "";
+  display: inline-block;
+  background-color: inherit;
+  position: absolute;
+  left: 100%;
+  width: 20px;
+  height: 2px;
+  top: 4px;
+}
+.buttonSecondary:hover {
+  animation: icon-arrow-off 0.33s cubic-bezier(0, 0, 0.2, 1);
+}
+@keyframes icon-arrow-off {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(0.95);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+.buttonSecondary:hover:before {
+  transform: scale(1);
+  opacity: 1;
+}
+.buttonSecondary:hover .text {
+  transform: translateX(21px);
+}
+.buttonSecondary:hover .iconArrow {
+  transform: translateX(30px) scale(0.8);
+  opacity: 0;
 }

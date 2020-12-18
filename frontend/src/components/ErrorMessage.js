@@ -5,10 +5,9 @@ const ErrorMessage = ({ errorMessage }) => {
     <div>
       <p
         style={{
-          color: "red",
+          color: "black",
           textAlign: "center",
           fontSize: "25px",
-          textshadow: "6px 6px 0px rgba(0,0,0,0.2)",
         }}
       >
         {errorMessage}

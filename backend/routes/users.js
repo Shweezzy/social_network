@@ -1,12 +1,6 @@
 const express = require("express");
 const router = express.Router();
 const auth = require("../middleware/auth");
-const getUserByMiddleware = require("../functionsForQueries/users/getUserByMiddleware");
-const getUserByEmail = require("../functionsForQueries/users/getUserByEmail");
-const getAllUsers = require("../functionsForQueries/users/getAllUsers");
-const getUserById = require("../functionsForQueries/users/getUserById");
-const registration = require("../functionsForQueries/users/registration");
-const login = require("../functionsForQueries/users/login");
 
 const {
   registerUserValidator,
@@ -16,6 +10,15 @@ const {
   checkActualPasswordValidator,
   changeUserPasswordValidator,
 } = require("../middleware/validator");
+
+const getUserByMiddleware = require("../functionsForQueries/users/getUserByMiddleware");
+const getUserByEmail = require("../functionsForQueries/users/getUserByEmail");
+const getAllUsers = require("../functionsForQueries/users/getAllUsers");
+const getUserById = require("../functionsForQueries/users/getUserById");
+
+const registration = require("../functionsForQueries/users/registration");
+const login = require("../functionsForQueries/users/login");
+
 const searchByUserName = require("../functionsForQueries/users/searchByUserName");
 const changeUserData = require("../functionsForQueries/changeData/changeUserData");
 const checkActualPassword = require("../functionsForQueries/users/checkActualPassword");
