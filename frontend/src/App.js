@@ -2,11 +2,15 @@ import React, { useEffect } from "react";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
 import Registration from "./pages/Registration";
+import AddPost from "./pages/AddPost";
+import Account from "./pages/Account";
+
 import Navbar from "./components/Navbar";
 
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import store from "./store.js";
 import IsLoggedInRoute from "./customRoutes/isLoggedInRoute";
+import PrivateRoute from "./customRoutes/privateRoute";
 
 //Зєднує стору з нашими маршрутами
 import { Provider } from "react-redux";
@@ -37,6 +41,8 @@ const App = () => {
             component={Registration}
           />
           <IsLoggedInRoute path="/login" exact component={Login} />
+          <PrivateRoute path="/add-post" exact component={AddPost} />
+          <PrivateRoute path="/account" exact component={Account} />
         </Switch>
       </Provider>
     </Router>

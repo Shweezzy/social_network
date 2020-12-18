@@ -53,15 +53,6 @@ const NavbarLinks = ({ isLoggedIn, logOut }) => {
         <Link
           className={s.buttonSecondary}
           style={{ display: isLoggedIn ? "flex" : "none" }}
-          to="/dashboard"
-        >
-          <span className={s.Text}>Dashboard</span>
-          <span className={s.iconArrow}></span>
-        </Link>
-
-        <Link
-          className={s.buttonSecondary}
-          style={{ display: isLoggedIn ? "flex" : "none" }}
           to="/add-post"
         >
           <span className={s.Text}>Question</span>

@@ -1,6 +1,8 @@
 import React from "react";
 import logo from "../logo.png";
 import { Link } from "react-router-dom";
+import { Button } from "react-bootstrap";
+
 import s from "./Home.module.css";
 
 const Home = () => {
@@ -25,9 +27,7 @@ const Home = () => {
           </ul>
           <div>
             <Link to="/registration">
-              <button type="button" className="btn btn-dark">
-                Register in
-              </button>
+              <Button variant="outline-info">Register in</Button>
             </Link>
           </div>
         </div>

@@ -47,21 +47,26 @@ const Login = ({ loginUser, error }) => {
                 onChange={(e) => onChange(e)}
               />
             </Form.Group>
-            <Form.Text className="d-flex justify-content-end">
+            <Form.Text className={s.textMuted}>
               If you have not created your account yet,
               <br /> please register
             </Form.Text>
             {error && (error !== null || error !== "" || error !== {}) && (
               <ErrorMessage errorMessage="Wrong e-mail or password..." />
             )}
-            <Link to="/registration">
-              <Button variant="primary" type="submit" className={s.button}>
-                Sign up
+            <div className={s.btn}>
+              <Button
+                onClick={(e) => loginUser(userData)}
+                variant="outline-info"
+              >
+                Log in
               </Button>
-            </Link>
-            <Button onClick={(e) => loginUser(userData)} className={s.button}>
-              Log in
-            </Button>
+              <Link to="/registration">
+                <Button variant="primary" variant="outline-info">
+                  Sign up
+                </Button>
+              </Link>
+            </div>
           </Form>
         </div>
       </div>

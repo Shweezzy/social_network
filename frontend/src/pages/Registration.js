@@ -98,7 +98,11 @@ const Registration = ({ registerUser, error }) => {
             />
           )}
 
-          <Button variant="primary" onClick={() => registerUser(userData)}>
+          <Button
+            className={s.btn}
+            variant="outline-info"
+            onClick={() => registerUser(userData)}
+          >
             Sign up
           </Button>
         </Form>

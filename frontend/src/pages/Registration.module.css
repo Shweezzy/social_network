@@ -1,6 +1,7 @@
 .container {
-  background: url("../backforregistration.jpg");
+  background: url("../hand-holding-phone-with-apps-desk-background.jpg");
   background-size: cover;
+  font-variant: small-caps;
 }
 
 .body {
@@ -8,10 +9,14 @@
   width: 100%;
   height: 650px;
   margin: auto;
-  opacity: 0.8;
 }
 .form {
   width: 50%;
   margin: auto;
-  color: rgb(255, 255, 255);
+  color: rgb(2, 0, 0);
+}
+
+.btn {
+  opacity: 1;
+  font-weight: bold;
 }

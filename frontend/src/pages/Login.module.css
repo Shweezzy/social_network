@@ -1,25 +1,36 @@
 .body {
   display: flex;
   width: 100%;
-  height: 600px;
+  height: 652px;
   margin: auto;
-  background: url("../logo.png") 48% no-repeat;
-  background-size: contain;
-  opacity: 0.9;
+  background: url("../flay-lay-notebook-with-password-info-magnifying-glass.jpg")
+    10% 10%;
+  background-size: cover;
 }
+
 .form {
   width: 60%;
   margin: auto;
-  color: rgb(99, 36, 36);
+  color: #000505;
+  font-size: 25px;
+  font-variant: small-caps;
 }
 .formControl {
   opacity: 0.75;
+  font-variant: small-caps;
 }
 
-.button {
-  position: relative;
-  float: right;
-  margin: 35px 22px 0 25px;
+.btn {
+  text-align: center;
+}
+.textMuted {
+  color: rgb(0, 0, 0);
+}
+
+.btn Button {
+  margin: 20px;
+  font-weight: bold;
+  font-variant: small-caps;
 }
 
 .textRegistr {

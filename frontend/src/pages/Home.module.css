@@ -1,20 +1,22 @@
 h2 {
-  font-family: "Lobster", Georgia, Times, serif;
+  font-variant: small-caps;
   font-size: 30px;
   line-height: 50px;
 }
 .contain {
   display: flex;
+  font-variant: small-caps;
 }
 .firstBlock {
-  width: 50%;
+  width: 40%;
   margin: 10% 10% 10% 10%;
+  font-size: 20px;
   transition: all 0.3s ease;
-  font-family: "Monotype Corsiva" Cursive;
+  color: #348080;
 }
 
 .secondBlock {
-  width: 40%;
+  width: 30%;
   margin: auto;
   transition: all 0.3s ease;
 }
@@ -37,4 +39,10 @@ h2 {
   -webkit-transform: scale(1.1);
   -ms-transform: scale(1.1);
   transform: scale(1.1);
+}
+
+.secondBlock:hover {
+  -webkit-transform: scale(1.2);
+  -ms-transform: scale(1.2);
+  transform: scale(1.2);
 }
