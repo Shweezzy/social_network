@@ -1,0 +1,8 @@
+.container {
+  background: url("../images/5234.jpg") no-repeat;
+  background-position: 20% 20%;
+  background-size: cover;
+  background-attachment: fixed;
+  min-height: 650px;
+  height: auto;
+}

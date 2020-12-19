@@ -7,7 +7,7 @@ const config = require("config");
 
 module.exports = async (req, res) => {
   try {
-    let { name, lastName, userName, email, password } = req.body;
+    let { name, lastName, userName, email, password, dateOfCreate } = req.body;
     let user = await User.findOne({ email }).select("-password");
     let fetchedUserNameFromDatabase = await User.findOne({ userName }).select(
       "-password"
@@ -35,6 +35,7 @@ module.exports = async (req, res) => {
       email,
       password,
       avatar,
+      dateOfCreate,
     });
 
     const salt = await bcryptjs.genSalt(10);

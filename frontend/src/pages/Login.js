@@ -62,9 +62,7 @@ const Login = ({ loginUser, error }) => {
                 Log in
               </Button>
               <Link to="/registration">
-                <Button variant="primary" variant="outline-info">
-                  Sign up
-                </Button>
+                <Button variant="outline-info">Sign up</Button>
               </Link>
             </div>
           </Form>

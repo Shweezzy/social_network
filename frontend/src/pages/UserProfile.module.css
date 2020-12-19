@@ -1,0 +1,13 @@
+.card {
+  width: "40%";
+  margin: "auto";
+}
+
+.container {
+  background: url("../images/3593965.jpg") no-repeat;
+  background-position: 50% 50%;
+  background-size: cover;
+  background-attachment: fixed;
+  min-height: 650px;
+  height: auto;
+}

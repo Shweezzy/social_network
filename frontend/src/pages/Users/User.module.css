@@ -1,0 +1,39 @@
+.img {
+  border-radius: 50%;
+  width: 50%;
+}
+.hr {
+  width: 70%;
+}
+.container {
+  font-variant: small-caps;
+  text-align: center;
+  opacity: 0.9;
+  border: 1px solid black;
+  margin: 5px;
+  border-radius: 20%;
+  border-style: inset;
+  width: 20%;
+  transition: 0.1s;
+}
+
+.btn {
+  border-radius: 10%;
+  width: 70%;
+  margin: 2px;
+}
+@media only screen and (max-width: 730px) {
+  .container {
+    font-size: 60%;
+  }
+  .btn {
+    width: 80%;
+    font-size: 100%;
+  }
+}
+
+.container:hover {
+  -webkit-transform: scale(1.1);
+  -ms-transform: scale(1.1);
+  transform: scale(1.1);
+}

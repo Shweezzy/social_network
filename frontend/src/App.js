@@ -4,6 +4,8 @@ import Login from "./pages/Login";
 import Registration from "./pages/Registration";
 import AddPost from "./pages/AddPost";
 import Account from "./pages/Account";
+import Users from "./pages/Users";
+import UserProfile from "./pages/UserProfile";
 
 import Navbar from "./components/Navbar";
 
@@ -35,6 +37,8 @@ const App = () => {
         <Switch>
           {/* exact для строгої рівності */}
           <Route path="/" exact component={Home} />
+          <Route path="/users" exact component={Users} />
+          <Route path="/users/user/:user_id" exact component={UserProfile} />
           <IsLoggedInRoute
             path="/registration"
             exact

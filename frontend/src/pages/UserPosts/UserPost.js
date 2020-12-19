@@ -15,7 +15,7 @@ const UserPost = ({ post, removePost, auth }) => {
   ) : (
     <div>
       <div style={{ float: "right", fontSize: "10px" }}>
-        <Moment format="HH:mm YYYY-MM-DD">{post.date}</Moment>
+        <Moment format="HH:mm DD-MM-YYYY">{post.date}</Moment>
       </div>
 
       <div style={{ fontSize: "20px" }}>

@@ -1,16 +1,14 @@
 .container {
   font-variant: small-caps;
-  background: url("../images/hand-holding-phone-with-apps-desk-background.jpg")
-    no-repeat;
-  background-position: 50% 50%;
+  background: url("../images/jess-bailey-ZY2GNpgiWyU-unsplash.jpg") 37% 37%;
   background-size: cover;
-  background-attachment: fixed;
 }
 
 .body {
   display: flex;
   width: 100%;
-  height: 650px;
+  min-height: 654px;
+  height: auto;
   margin: auto;
 }
 .form {
