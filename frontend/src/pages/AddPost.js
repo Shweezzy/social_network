@@ -5,13 +5,14 @@ import { createPost } from "../actions/postActions/createPost";
 import CreatePost from "../components/AddPost/CreatePost";
 import Output from "../components/AddPost/Output";
 
+import s from "./AddPost.module.css";
 const AddPost = ({ clearPost, createPost, posts: { post } }) => {
   setTimeout(() => {
     clearPost();
-  }, 5000);
+  }, 10000);
 
   return (
-    <div>
+    <div className={s.container}>
       {post === null ? (
         <CreatePost createPost={createPost} />
       ) : (

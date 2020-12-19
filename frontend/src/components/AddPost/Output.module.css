@@ -1,0 +1,16 @@
+.btn {
+  margin: 15px;
+}
+
+.card {
+  width: 30%;
+  margin: auto;
+  text-align: center;
+}
+
+.container {
+  width: 100%;
+  min-height: 654px;
+  height: auto;
+  padding-top: 7%;
+}

@@ -7,7 +7,10 @@ export const removePost = (post_id) => async (dispatch) => {
     const res = await axios.delete(
       `http://localhost:1000/api/posts/delete_post/${post_id}`
     );
+
+    console.log(res);
     dispatch({ type: REMOVE_POST, payload: res.data });
+
     dispatch(getUserPosts());
   } catch (error) {
     dispatch({

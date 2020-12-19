@@ -4,6 +4,8 @@ import { getUserPosts } from "../actions/userActions/getUserPosts";
 import UserPostsWrapper from "./UserPosts/UserPostsWrapper";
 import AccountPageSection from "../components/AccountPage/AccountPageSection";
 
+import { Card } from "react-bootstrap";
+import s from "./Account.module.css";
 const Account = ({
   getUserPosts,
   auth: { name, lastName, userName, avatar, email },
@@ -12,12 +14,10 @@ const Account = ({
   useEffect(() => {
     getUserPosts();
   }, [getUserPosts]);
-  console.log({ name, lastName, userName, avatar, email });
   return (
-    <div>
-      <div>
+    <div className={s.contain}>
+      <div className={s.accountSection}>
         <img src={avatar} alt="" />
-
         <AccountPageSection
           name={name}
           lastName={lastName}
@@ -26,15 +26,14 @@ const Account = ({
         />
       </div>
 
-      <div>
-        <header>
-          {profilePosts !== null || profilePosts !== [] ? (
-            <p>Your topics</p>
-          ) : (
-            <p>You haven't made any posts yet</p>
-          )}
-        </header>
-        <UserPostsWrapper posts={profilePosts} />
+      <div style={{ marginTop: "2%" }}>
+        <h6>Your awesome posts:</h6>
+
+        <Card style={{ opacity: "0.9", width: "60%", margin: "auto" }}>
+          <Card.Body>
+            <UserPostsWrapper posts={profilePosts} />
+          </Card.Body>
+        </Card>
       </div>
     </div>
   );

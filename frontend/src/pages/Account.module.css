@@ -1,0 +1,18 @@
+.contain {
+  opacity: 0.9;
+  height: auto;
+  text-align: center;
+  font-variant: small-caps;
+  min-height: 654px;
+  background: url("../images/flat-lay-office-desk-concept.jpg") no-repeat;
+  background-position: 50% 50%;
+  background-size: cover;
+  background-attachment: fixed;
+}
+.accountSection {
+  display: inline-flex;
+}
+
+.accountSection img {
+  border-radius: 50%;
+}

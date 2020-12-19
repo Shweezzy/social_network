@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { Card, Button, Form } from "react-bootstrap";
-import logo from "../../backAddPost.png";
 import s from "./CreatePost.module.css";
 
 const CreatePost = ({ createPost }) => {
@@ -20,25 +19,27 @@ const CreatePost = ({ createPost }) => {
     <div className={s.container}>
       <Card className={s.card}>
         <Card.Body>
-          <Card.Title>Adding a post</Card.Title>
-          <Card.Text>
+          <Card.Title>
+            <h2>Adding a post</h2>
+          </Card.Title>
+          <Card.Text className={s.text}>
             Here you have the opportunity to add your post and share your
             thoughts with other forum members.
           </Card.Text>
         </Card.Body>
         <Form.Group className={s.bottomGroup}>
-          <Form.Label className={s.textArea}>
+          <Form.Label className={s.text}>
             The text of your awesome post:
           </Form.Label>
           <Form.Control
             onChange={(e) => onChange(e)}
             as="textarea"
-            rows={3}
+            rows={5}
             type="text"
             value={textOfThePost}
           />
         </Form.Group>
-        <Button onClick={() => submitData()} variant="light">
+        <Button className={s.text} onClick={() => submitData()} variant="light">
           Add post
         </Button>
       </Card>

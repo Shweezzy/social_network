@@ -3,12 +3,12 @@ import SingleAccountData from "./SingleAccountData";
 
 const AccountPageSection = ({ name, lastName, userName, email }) => {
   return (
-    <div className="data-items">
+    <div>
       <SingleAccountData dataName="Name:" dataToShow={name} />
 
-      <SingleAccountData dataName="Last Name:" dataToShow={lastName} />
+      <SingleAccountData dataName="Last name:" dataToShow={lastName} />
 
-      <SingleAccountData dataName="Username:" dataToShow={userName} />
+      <SingleAccountData dataName="User name:" dataToShow={userName} />
 
       <SingleAccountData dataName="E-mail:" dataToShow={email} />
     </div>

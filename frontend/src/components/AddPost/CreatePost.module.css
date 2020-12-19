@@ -1,19 +1,21 @@
 .card {
   width: 40%;
+  margin-top: 5%;
+  height: 500px;
+  text-align: center;
 }
 .container {
   display: flex;
   justify-content: center;
   font-variant: small-caps;
   opacity: 0.9;
+  height: auto;
+  min-height: 654px;
 }
 .bottomGroup {
   padding: 5px;
 }
-.textArea {
-  padding-left: 10px;
-}
-body {
-  background: url("../../woman-using-facebook-social-site-laptop.jpg") 18% 18%;
-  background-size: cover;
+
+.text {
+  font-weight: bold;
 }

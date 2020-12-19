@@ -5,8 +5,8 @@ module.exports = async (req, res) => {
     let post = await Post.findById(req.params.post_id);
 
     if (!post) return res.status(404).json("Post is not found");
-
-    if (post.user !== req.user.id)
+    console.log(post.user, req.user.id);
+    if (post.user.toString() !== req.user.id.toString())
       return res.status(401).json("You do not have access to this action");
 
     await post.remove();

@@ -1,7 +1,10 @@
 .container {
-  background: url("../hand-holding-phone-with-apps-desk-background.jpg");
-  background-size: cover;
   font-variant: small-caps;
+  background: url("../images/hand-holding-phone-with-apps-desk-background.jpg")
+    no-repeat;
+  background-position: 50% 50%;
+  background-size: cover;
+  background-attachment: fixed;
 }
 
 .body {
