@@ -2,10 +2,9 @@
   opacity: 0.9;
   height: auto;
   text-align: center;
-  font-variant: small-caps;
   min-height: 654px;
-  background: url("../images/flat-lay-office-desk-concept.jpg") no-repeat;
-  background-position: 50% 50%;
+  background: url("../images/backAccount.jpg") no-repeat;
+  background-position: 20% 20%;
   background-size: cover;
   background-attachment: fixed;
 }

@@ -4,13 +4,9 @@ import {
   AUTH_ERROR,
   USER_IS_LOADED,
   LOG_OUT,
-  CHANGE_PASSWORD_FAIL,
-  CHECK_PASSWORDS,
-  CHANGE_PROFILE,
-  CHANGE_USER_DATA_FAILED,
   GET_USERS,
-  SEARCH_BY_USERNAME,
-} from "../constants/auth.constans";
+  GET_USER_FOR_PAGE,
+} from "../constants/authConstans";
 
 const initialState = {
   token: localStorage.getItem("token"),
@@ -37,26 +33,7 @@ const auth = (state = initialState, action) => {
         isLoading: false,
         errors: {},
       };
-    case CHANGE_PROFILE:
-      return {
-        ...state,
-        ...payload,
-        isLoggedIn: true,
-        isAllowedToChangePassword: false,
-        isPasswordChanged: false,
-        isLoading: false,
-        errors: null,
-      };
-    case CHECK_PASSWORDS:
-      return {
-        ...state,
-        ...payload,
-        isAllowedToChangePassword: true,
-        errors: {},
-      };
-
     case GET_USERS:
-    case SEARCH_BY_USERNAME:
       return {
         ...state,
         users: [...payload],
@@ -80,12 +57,6 @@ const auth = (state = initialState, action) => {
         isPasswordChanged: false,
         isLoading: false,
       };
-    case CHANGE_PASSWORD_FAIL:
-    case CHANGE_USER_DATA_FAILED:
-      return {
-        ...state,
-        errors: payload,
-      };
     case USER_IS_LOADED:
       localStorage.getItem("token");
       return {
@@ -97,6 +68,16 @@ const auth = (state = initialState, action) => {
         isAllowedToChangePassword: false,
         isPasswordChanged: false,
         isLoading: false,
+      };
+    case GET_USER_FOR_PAGE:
+      return {
+        ...state,
+        users: [...payload],
+        isLoggedIn: false,
+        isAllowedToChangePassword: false,
+        isPasswordChanged: false,
+        isLoading: false,
+        errors: null,
       };
     default:
       return state;

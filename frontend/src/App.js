@@ -6,6 +6,7 @@ import AddPost from "./pages/AddPost";
 import Account from "./pages/Account";
 import Users from "./pages/Users";
 import UserProfile from "./pages/UserProfile";
+import Posts from "./pages/Posts";
 
 import Navbar from "./components/Navbar";
 
@@ -39,6 +40,8 @@ const App = () => {
           <Route path="/" exact component={Home} />
           <Route path="/users" exact component={Users} />
           <Route path="/users/user/:user_id" exact component={UserProfile} />
+          <Route path="/posts" exact component={Posts} />
+
           <IsLoggedInRoute
             path="/registration"
             exact

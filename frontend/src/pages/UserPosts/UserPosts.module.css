@@ -5,3 +5,8 @@
 .svg:hover {
   transform: scale(1.2);
 }
+.spinner {
+  width: 100%;
+  text-align: center;
+  margin-top: 20%;
+}

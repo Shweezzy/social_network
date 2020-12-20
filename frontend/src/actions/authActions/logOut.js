@@ -1,4 +1,5 @@
-import { LOG_OUT } from "../../constants/auth.constans";
+import { LOG_OUT } from "../../constants/authConstans";
+
 export const logOut = () => (dispatch) => {
   dispatch({ type: LOG_OUT });
 };

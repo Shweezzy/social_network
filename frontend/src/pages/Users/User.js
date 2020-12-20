@@ -15,15 +15,11 @@ const User = ({ user }) => {
       </div>
 
       <div>
-        <div>
-          <div>
-            <Link to={`/users/user/${user._id}`}>
-              <Button className={s.btn} variant="outline-info">
-                View Profile
-              </Button>
-            </Link>
-          </div>
-        </div>
+        <Link to={`/users/user/${user._id}`}>
+          <Button className={s.btn} variant="outline-info">
+            View Profile
+          </Button>
+        </Link>
       </div>
     </div>
   );

@@ -5,11 +5,6 @@ import {
   GET_POST,
   CLEAR_POSTS,
   CLEAR_POST,
-  SEARCH_TOPICS,
-  MOST_LIKED_POSTS,
-  MOST_COMMENTED,
-  THE_MOST_RECENT_POSTS,
-  REMOVE_LIKE_FROM_COMMENT,
 } from "../constants/postConstants";
 
 const initialState = {
@@ -24,7 +19,6 @@ const posts = (state = initialState, action) => {
   switch (type) {
     case MAKE_POST:
     case GET_POST:
-    case REMOVE_LIKE_FROM_COMMENT:
       return {
         ...state,
         post: payload,
@@ -32,10 +26,6 @@ const posts = (state = initialState, action) => {
         errors: {},
       };
     case GET_POSTS:
-    case THE_MOST_RECENT_POSTS:
-    case SEARCH_TOPICS:
-    case MOST_COMMENTED:
-    case MOST_LIKED_POSTS:
       return {
         ...state,
         posts: payload,

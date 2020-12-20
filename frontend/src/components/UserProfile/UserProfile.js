@@ -20,7 +20,6 @@ const UserProfileData = ({ userProfile }) => {
           </Card.Body>
           <Card.Footer>
             <small className="text-muted">
-              {" "}
               Registration on the website:
               <br />
               <Moment format="HH:mm DD-MM-YYYY">

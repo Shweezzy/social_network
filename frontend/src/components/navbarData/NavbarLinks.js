@@ -20,7 +20,7 @@ const NavbarLinks = ({ isLoggedIn, logOut }) => {
           <span className={s.iconArrow}></span>
         </Link>
 
-        <Link className={s.buttonSecondary} to="/topics">
+        <Link className={s.buttonSecondary} to="/posts">
           <span className={s.Text}>Posts</span>
           <span className={s.iconArrow}></span>
         </Link>

@@ -18,7 +18,7 @@ const UserProfile = ({
     getUserById(match.params.user_id);
   }, [getUserById, match.params.user_id]);
   return userProfile === null ? (
-    <div>
+    <div className={s.spinner}>
       <Spinner />
     </div>
   ) : (

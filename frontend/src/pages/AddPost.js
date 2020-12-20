@@ -2,8 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import { clearPost } from "../actions/postActions/clearPost";
 import { createPost } from "../actions/postActions/createPost";
-import CreatePost from "../components/AddPost/CreatePost";
-import Output from "../components/AddPost/Output";
+import CreateNewPost from "../components/AddPost/CreateNewPost";
 
 import s from "./AddPost.module.css";
 const AddPost = ({ clearPost, createPost, posts: { post } }) => {
@@ -13,11 +12,7 @@ const AddPost = ({ clearPost, createPost, posts: { post } }) => {
 
   return (
     <div className={s.container}>
-      {post === null ? (
-        <CreatePost createPost={createPost} />
-      ) : (
-        <Output clearPost={clearPost} />
-      )}
+      <CreateNewPost createPost={createPost} />
     </div>
   );
 };

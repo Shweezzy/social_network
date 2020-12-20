@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
-import { removePost } from "../../actions/postActions/removePost";
+import { deletePost } from "../../actions/postActions/deletePost";
 import Spinner from "../../spinnerLoader";
 import Moment from "react-moment";
 import { Button } from "react-bootstrap";
@@ -9,13 +9,13 @@ import { Button } from "react-bootstrap";
 import s from "./UserPosts.module.css";
 const UserPost = ({ post, removePost, auth }) => {
   return post === null || !post ? (
-    <div>
+    <div className={s.spinner}>
       <Spinner />
     </div>
   ) : (
     <div>
       <div style={{ float: "right", fontSize: "10px" }}>
-        <Moment format="HH:mm DD-MM-YYYY">{post.date}</Moment>
+        <Moment format="DD-MM-YYYY">{post.date}</Moment>
       </div>
 
       <div style={{ fontSize: "20px" }}>
@@ -68,7 +68,7 @@ const UserPost = ({ post, removePost, auth }) => {
           }}
         >
           <div>
-            <Button onClick={() => removePost(post._id)} variant="outline-info">
+            <Button onClick={() => deletePost(post._id)} variant="outline-info">
               Delete post
             </Button>
           </div>
@@ -85,7 +85,7 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = {
-  removePost,
+  deletePost,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(UserPost);

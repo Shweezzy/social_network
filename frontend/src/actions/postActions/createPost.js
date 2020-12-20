@@ -8,7 +8,9 @@ export const createPost = (textOfThePost) => async (dispatch) => {
         "Content-Type": "application/json",
       },
     };
+
     const body = JSON.stringify({ textOfThePost });
+
     const res = await axios.post(
       `http://localhost:1000/api/posts`,
       body,
@@ -16,10 +18,10 @@ export const createPost = (textOfThePost) => async (dispatch) => {
     );
 
     dispatch({ type: MAKE_POST, payload: res.data });
-  } catch (error) {
+  } catch (err) {
     dispatch({
       type: POST_ERROR,
-      payload: error,
+      payload: err,
     });
   }
 };

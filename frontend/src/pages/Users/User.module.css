@@ -6,11 +6,10 @@
   width: 70%;
 }
 .container {
-  font-variant: small-caps;
   text-align: center;
   opacity: 0.9;
   border: 1px solid black;
-  margin: 5px;
+  margin: 15px;
   border-radius: 20%;
   border-style: inset;
   width: 20%;

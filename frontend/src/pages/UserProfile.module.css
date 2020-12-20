@@ -4,10 +4,15 @@
 }
 
 .container {
-  background: url("../images/3593965.jpg") no-repeat;
-  background-position: 50% 50%;
+  background: url("../images/backUserProfile.jpg") 10% 10%;
   background-size: cover;
   background-attachment: fixed;
   min-height: 650px;
   height: auto;
+}
+
+.spinner {
+  width: 100%;
+  text-align: center;
+  margin-top: 20%;
 }

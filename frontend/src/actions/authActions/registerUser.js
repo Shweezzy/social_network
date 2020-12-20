@@ -3,7 +3,7 @@ import { userLoaded } from "./userLoaded";
 import {
   AUTH_FORM_SUCCESS,
   AUTH_FORM_FAIL,
-} from "../../constants/auth.constans";
+} from "../../constants/authConstans";
 
 export const registerUser = (userData) => async (dispatch) => {
   try {
@@ -25,11 +25,12 @@ export const registerUser = (userData) => async (dispatch) => {
       type: AUTH_FORM_SUCCESS,
       payload: response.data,
     });
+
     dispatch(userLoaded());
-  } catch (error) {
+  } catch (err) {
     dispatch({
       type: AUTH_FORM_FAIL,
-      payload: error,
+      payload: err,
     });
   }
 };

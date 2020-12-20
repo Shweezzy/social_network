@@ -1,13 +1,18 @@
 import React, { useEffect } from "react";
 import { connect } from "react-redux";
+import { getUsersForPage } from "../actions/userActions/getUsersForPage";
 import { getUsers } from "../actions/userActions/getUsers";
 import UsersWrapper from "./Users/UserWrapper";
 
 import s from "./Users.module.css";
-const Users = ({ getUsers, auth }) => {
+const Users = ({ getUsersForPage, getUsers, auth }) => {
   useEffect(() => {
-    getUsers();
-  }, [getUsers]);
+    if (localStorage.getItem("token")) {
+      getUsers();
+    } else {
+      getUsersForPage();
+    }
+  }, [getUsersForPage, getUsers]);
 
   return (
     <div className={s.container}>
@@ -24,4 +29,4 @@ const mapStateToProps = (state) => ({
   auth: state.auth,
 });
 
-export default connect(mapStateToProps, { getUsers })(Users);
+export default connect(mapStateToProps, { getUsersForPage, getUsers })(Users);
