@@ -16,8 +16,15 @@ const User = ({ user }) => {
 
       <div>
         <Link to={`/users/user/${user._id}`}>
-          <Button className={s.btn} variant="outline-info">
-            View Profile
+          <Button
+            variant="outline-info"
+            style={{
+              width: "20%",
+              fontSize: "10%",
+              textAlign: "center",
+            }}
+          >
+            <span className={s.span}> Profile</span>
           </Button>
         </Link>
       </div>

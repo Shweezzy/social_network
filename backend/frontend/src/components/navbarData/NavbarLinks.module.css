@@ -99,7 +99,7 @@
 
 @media only screen and (max-width: 730px) {
   .buttonSecondary {
-    font-size: 7px;
+    font-size: 10px;
     width: 17%;
     text-align: initial;
   }
@@ -108,5 +108,22 @@
   }
   .buttonSecondary .iconArrow:after {
     width: 11px;
+  }
+}
+@media only screen and (max-width: 430px) {
+  .buttonSecondary {
+    font-size: 7px;
+    width: 17%;
+    text-align: initial;
+  }
+  .buttonSecondary .iconArrow {
+    display: none;
+  }
+  .buttonSecondary .iconArrow:after {
+    display: none;
+  }
+  .buttonSecondary span {
+    width: 100%;
+    margin-left: -25%;
   }
 }

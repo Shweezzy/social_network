@@ -2,7 +2,7 @@ import React from "react";
 
 const AccountDetails = ({ dataName, dataToShow }) => {
   return (
-    <div style={{ fontSize: "19px" }}>
+    <div>
       <p />
       <span>
         {dataName} {dataToShow}

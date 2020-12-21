@@ -15,3 +15,8 @@
 .accountSection img {
   border-radius: 50%;
 }
+.postWrapper {
+  width: "60%";
+  padding-left: 5%;
+  padding-right: 5%;
+}

@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 import { Card } from "react-bootstrap";
 import s from "./Post.module.css";
 
-const TopicPost = ({ post, auth }) => {
+const TopicPost = ({ post }) => {
   return (
     <div className={s.container}>
       <Card style={{ width: "80%", margin: "5px" }}>
@@ -47,7 +47,7 @@ const TopicPost = ({ post, auth }) => {
               </svg>
             </div>
             <div>
-              <Link to={`/topics/topic/${post._id}`}>View more</Link>
+              <Link to={`/posts/post/${post._id}`}>View more</Link>
             </div>
             Post created: &nbsp;
             <Moment format="DD-MM-YYYY">{post.date}</Moment>
@@ -56,15 +56,6 @@ const TopicPost = ({ post, auth }) => {
       </Card>
       <br />
     </div>
-    //   <div>
-    //     <div>{post.likes.length}</div>
-    //   </div>
-
-    //   <div>{post.comments.length}</div>
-
-    //   <div>
-    //     <Link to={`/topics/topic/${post._id}`}>View more</Link>
-    //   </div>
   );
 };
 

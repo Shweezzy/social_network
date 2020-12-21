@@ -10,9 +10,11 @@ h2 {
   display: flex;
 
   width: 100%;
-  height: 654px;
-  background: url("../images/homeBack.jpg") 98% 98%;
+  min-height: 654px;
+  background: url("../images/homeBack.jpg") no-repeat;
   background-size: cover;
+  height: auto;
+  background-attachment: fixed;
 }
 .firstBlock {
   width: 40%;
@@ -54,8 +56,8 @@ h2 {
   transform: scale(1.2);
 }
 
-@media only screen and (max-width: 650px) {
+@media only screen and (max-width: 450px) {
   .firstBlock {
-    font-size: 16px;
+    font-size: 14px;
   }
 }

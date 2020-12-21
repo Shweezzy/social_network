@@ -28,12 +28,16 @@ const Account = ({
 
       <div style={{ marginTop: "2%" }}>
         <h6>Your awesome posts:</h6>
-
-        <Card style={{ opacity: "0.9", width: "60%", margin: "auto" }}>
-          <Card.Body>
-            <UserPostsWrapper posts={profilePosts} />
-          </Card.Body>
-        </Card>
+        <div className={s.postWrapper}>
+          <Card style={{ opacity: "0.8" }}>
+            <Card.Body>
+              <UserPostsWrapper
+                className={s.postWrapper}
+                posts={profilePosts}
+              />
+            </Card.Body>
+          </Card>
+        </div>
       </div>
     </div>
   );
