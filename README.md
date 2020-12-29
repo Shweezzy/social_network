@@ -19,3 +19,5 @@ Initial version. Backend - after cloning
 ---
 
 This project is designed for teaching purposes only andis still in development...
+
+# test fersion deply - https://mernsocialforumapp.herokuapp.com/
